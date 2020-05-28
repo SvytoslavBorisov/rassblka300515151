@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form action="" method="post">
+        {{ form.hidden_tag() }}
+        <div class="login_label" id="text">{{ form.email.label }}</div>
+        <div class="login_area_div">{{ form.email(class="login_area", id="email1") }}</div>
+        {% for error in form.email.errors %}
+            <div class="alert alert-danger" role="alert">
+                {{ error }}
+            </div>
+        {% endfor %}
+
+        <div id="login_button">{{ form.submit(type="submit", class="btn btn-primary", id='button_loginIN') }}</div>
+        <div>{{ message }}</div>
+    </form>
+</body>
+</html>
