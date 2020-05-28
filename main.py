@@ -177,4 +177,4 @@ def add():
 
     return render_template('add.html', **param, form=form)
 
-application.run()
+#application.run()
