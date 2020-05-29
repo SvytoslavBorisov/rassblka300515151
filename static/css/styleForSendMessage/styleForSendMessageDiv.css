@@ -1,0 +1,12 @@
+#input_text_message {
+    width: 200px;
+    height: 200px;
+}
+
+#div_send_message {
+    text-align: center;
+}
+
+label {
+    width: 100%;
+}

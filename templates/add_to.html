@@ -1,10 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends "base.html" %}
+
+{% block content %}
     <form action="" method="post">
         {{ form.hidden_tag() }}
         <div class="login_label" id="text">{{ form.email.label }}</div>
@@ -18,5 +14,4 @@
         <div id="login_button">{{ form.submit(type="submit", class="btn btn-primary", id='button_loginIN') }}</div>
         <div>{{ message }}</div>
     </form>
-</body>
-</html>
+{% endblock %}

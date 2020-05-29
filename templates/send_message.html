@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div id="div_send_message">
+        <form action="" method="post" enctype="multipart/form-data">
+            <div>
+                <div>
+                    <label for="input_text_message">
+                        Введите текст письма:
+                    </label>
+                </div>
+                <textarea name="text_message" id="input_text_message"></textarea>
+            </div>
+
+            <div>
+                <label for="input_type_message_html">
+                    Выберите тип письма:
+                </label>
+
+                <div><input type="radio" name="type_message" value="html" id="input_type_message_html"> html </div>
+                <div><input type="radio" name="type_message" value="текст" id="input_type_message_text" checked> Текст </div>
+
+            </div>
+
+            <div>
+                <div>
+                    <label for="input_image_message">
+                        Добавьте картинку к письму:
+                    </label>
+                </div>
+
+                <input type="file" name="file_message" value="добавить КАРТИНКУ" id="input_image_message">
+            </div>
+
+            <h2>Кому письмо отправиться:</h2>
+            <div>
+                {% for group in groups %}
+                    <script>
+                        function show_group(id){
+                            if (document.getElementById('div_members_group_' + id).hidden) {
+                                document.getElementById('div_members_group_' + id).hidden = false;
+                            }
+                            else {
+                                document.getElementById('div_members_group_' + id).hidden = true;
+                            }
+                        }
+                    </script>
+                    <h3 class="h3_title_group" onclick="show_group({{ groups_id[ loop.index - 1] }})">{{ groups_title[loop.index - 1] }}</h3>
+                    <div class="div_members_groups" id='div_members_group_{{ groups_id[ loop.index - 1] }}'>
+                        {% for email in group %}
+                            <p class="p_email">{{ loop.index }}{{ '. ' + email[0].email}}</p>
+                        {% endfor %}
+                    </div>
+
+                    <input type="submit" name="send_message" value="Отправить группе '{{ groups_title[ loop.index - 1] }}'" class="input_send_message">
+
+                    <script>
+                        document.getElementById('div_members_group_{{ groups_id[ loop.index - 1] }}').hidden = true;
+                    </script>
+                {% endfor %}
+            </div>
+        </form>
+    </div>
+    <script src="/static/scripts/scriptForMain.js"></script>
+{% endblock %}

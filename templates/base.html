@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="/static/css/styleForBase/styleForNavigatorDiv.css" type="text/css">
+    <link rel="stylesheet" href="/static/css/styleForBody/styleForBody.css" type="text/css">
+    {% for style in styles %}
+        <link rel="stylesheet" href="{{ path_for_style + style }}" type="text/css">
+    {% endfor %}
+    <script src="https://code.jquery.com/jquery-3.0.0.js"></script>
+</head>
+<body>
+    <div id="navigator_div">
+        <a href="/" class="navigator_a">
+            <h2 id="h2_logo">Рассылка.net</h2>
+        </a>
+        {% if current_user.is_authenticated %}
+                {% if current_user.name[6] %}
+                    <a href="/user_info" class="navigator_a">
+                        <p class="navigator_p" id="user_nickname_p">{{ current_user.name[:6] + '...' }}</p>
+                    </a>
+                {% else %}
+                    <a href="/user_info" class="navigator_a">
+                        <p class="navigator_p" id="user_nickname_p">{{ current_user.name[:6] }}</p>
+                    </a>
+                {% endif %}
+        {% else %}
+            <a href="/login" class="navigator_a">
+                <p class="navigator_p" id="user_nickname_p">Войти</p>
+            </a>
+        {% endif %}
+    </div>
+    {% block content %}
+    {% endblock %}
+</body>
+</html>

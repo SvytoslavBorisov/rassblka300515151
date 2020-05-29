@@ -1,0 +1,40 @@
+#main_div_user_info {
+    text-align: center;
+}
+
+#div_input_email {
+    width: 100%;
+}
+
+#div_input_password {
+    width: 100%;
+}
+
+.div_members_groups {
+    font-size: 20px;
+}
+
+.p_email {
+    padding: 0px;
+    margin: 0px;
+    width: 50%;
+    height: 50px;
+    line-height: 50px;
+    float: left;
+}
+
+.input_del_email {
+    width: 50%;
+    height: 50px;
+    line-height: 50px;
+    padding: 0px;
+    margin: 0px;
+    float: left;
+}
+
+.h3_title_group {
+    padding: 0px;
+    margin: 0px;
+    font-size: 30px;
+    height: 35px;
+}
